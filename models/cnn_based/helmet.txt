@@ -1,0 +1,40 @@
+- Precision 1.0, Recall 0.75, Accuracy: 0.86
+
+Model: "sequential_4"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ conv2d_10 (Conv2D)          (None, 254, 254, 8)       224       
+                                                                 
+ max_pooling2d_10 (MaxPoolin  (None, 127, 127, 8)      0         
+ g2D)                                                            
+                                                                 
+ conv2d_11 (Conv2D)          (None, 125, 125, 16)      1168      
+                                                                 
+ max_pooling2d_11 (MaxPoolin  (None, 62, 62, 16)       0         
+ g2D)                                                            
+                                                                 
+ conv2d_12 (Conv2D)          (None, 58, 58, 32)        12832     
+                                                                 
+ max_pooling2d_12 (MaxPoolin  (None, 29, 29, 32)       0         
+ g2D)                                                            
+                                                                 
+ flatten_3 (Flatten)         (None, 26912)             0         
+                                                                 
+ dense_6 (Dense)             (None, 128)               3444864   
+                                                                 
+ dense_7 (Dense)             (None, 1)                 129       
+                                                                 
+=================================================================
+Total params: 3,459,217
+Trainable params: 3,459,217
+Non-trainable params: 0
+
+optimizer = tf.keras.optimizers.Adam(learning_rate=5e-3, decay=0.25)
+
+lr_callback = tf.keras.callbacks.ReduceLROnPlateau(
+    monitor='val_loss',
+    factor=0.5,
+    patience=2,
+    min_lr=0.0000001
+)
