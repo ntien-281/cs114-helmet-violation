@@ -1,0 +1,2 @@
+box_loss,cls_loss,dfl_loss,   metrics/precision(B),      metrics/recall(B),       metrics/mAP50(B),    metrics/mAP50-95(B)
+1.1251,0.89263,1.1462,0.86495,0.86814,0.92612,0.61745
